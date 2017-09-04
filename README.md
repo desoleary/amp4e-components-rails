@@ -16,10 +16,9 @@ And then execute:
 ## Testing 
     $ bin/rspec
  
-## Usage
-> Please check out [demo README](spec/dummy/README.md) for details.
+## Demo
 
-TODO: Write usage instructions here
+> Please check out [demo README](spec/dummy/README.md) for details.
 
 ## Development
 
