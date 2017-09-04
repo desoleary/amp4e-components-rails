@@ -1,5 +1,5 @@
 require "bundler/setup"
-require "amp4e/components"
+require "amp4e-components-rails"
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
