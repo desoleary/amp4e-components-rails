@@ -5,4 +5,5 @@
 
 ## Demo
     $ bin/rails s
-    goto [demo app](http://localhost:3000/)
+
+[demo app](http://localhost:3000/)
