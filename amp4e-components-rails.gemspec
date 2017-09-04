@@ -1,11 +1,11 @@
 # coding: utf-8
 lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require "amp4e/components/version"
+require "version"
 
 Gem::Specification.new do |spec|
-  spec.name          = "amp4e-components"
-  spec.version       = Amp4e::Components::VERSION
+  spec.name          = "amp4e-components-rails"
+  spec.version       = Amp4e::Components::Rails::VERSION
   spec.authors       = ["desoleary"]
   spec.email         = ["desoleary@gmail.com"]
 

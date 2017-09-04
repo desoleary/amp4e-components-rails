@@ -1,0 +1,4 @@
+<% @type = 'danger' if @type == 'error'%>
+<div class="flash-alert alert alert-<%= @type %>">
+  <span class="alert-message"><%= @message %></span>
+</div>
