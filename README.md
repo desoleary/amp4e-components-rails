@@ -17,8 +17,7 @@ And then execute:
     $ bin/rspec
  
 ## Usage
-> Please check out README for details
-[demo README](spec/dummy/README.md)
+> Please check out [demo README](spec/dummy/README.md) for details.
 
 TODO: Write usage instructions here
 
