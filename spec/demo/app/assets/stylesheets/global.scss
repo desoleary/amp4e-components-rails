@@ -1,0 +1,321 @@
+@import 'sass-base';
+
+// -----=====[ Global ]=====-----
+
+// Highlight color for selected text
+@include textSelectionColor(hsl($hue, 100%, 85%));
+
+html,
+body { height: 100% }
+
+body {
+  margin: 0;
+  min-width: 1000px;
+  background: white;
+  text-align: start;
+  font-family: $main-font;
+  font-size: $base-font-size;
+  line-height: 1.66;
+  // prevent WebKit browsers from disabling subpixel AA
+  // (avoids text suddenly becoming thin and weak during transitions etc.)
+  -webkit-font-smoothing: subpixel-antialiased;
+
+  @include responsive {
+    min-width: 0
+  }
+}
+
+.btn,
+button,
+label,
+select,
+h5 { font-size: 12px }
+
+ol, ul { padding-left: 16px }
+
+
+// ----- Core Layout -----
+
+main {
+  position: relative;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 0 30px 30px 30px;
+  width: 1000px;
+  background-image: none;
+  color: gray(40);
+
+  @include responsive {
+    margin: 0 auto;
+    max-width: 1440px;
+    width: auto;
+  }
+
+  @include responsive-xs-only { padding: 0 10px 10px 10px }
+  @include responsive-sm-only { padding: 0 20px 20px 20px }
+
+  .wide-layout & { width: auto }
+
+  body.fixed-layout & { width: 1000px }
+}
+
+// ----- Headings -----
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+  line-height: normal;
+}
+
+h1 {
+  position: relative;
+  margin: 15px 0;
+  padding: 0;
+  font-size: 21px;
+  line-height: 26px;
+
+  // collapse whitespace in page titles
+  &.page-title {
+    font-size: 0;
+    .heading-text {
+      font-size: 21px
+    }
+  }
+
+}
+
+h2 {
+  font-size: 22px;
+  line-height: 1;
+}
+
+h3 {
+  margin-top: 20px;
+  font-size: 17px;
+  line-height: 20px;
+
+  .modal & {
+    border-bottom: 0;
+    padding-top: 0;
+    margin-top: 1em;
+  }
+}
+
+// ----- General Layout -----
+
+.well {
+  margin-top: 12px;
+  background-image: none;
+  background-color: gray(99);
+  border-color: gray(85);
+}
+
+.inline-well { display: inline-block }
+
+.action-buttons {
+  text-align: right;
+
+  + .well { margin-top: 12px }
+
+  .btn + .btn-group,
+  .btn-group + .btn,
+  .btn + .btn { margin-left: 3px }
+
+  .btn-group .btn + .btn { margin-left: -1px }
+}
+
+
+// ----- Icons -----
+
+.fa {
+  font-size: 14px;
+
+  a & {
+    display: inline;
+    &.fa-fw { display: inline-block }
+  }
+}
+
+
+// ----- Links & Forms -----
+
+a {
+  text-shadow: 0 1px 0 white;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.15s ease-in-out;
+
+  &,
+  &:focus,
+  &:hover {
+    color: darken($highlight-color, 7%);
+    text-decoration: none;
+  }
+
+  &:focus,
+  &:hover {
+    border-bottom: 1px solid transparentize(darken($highlight-color, 7%), 0.5);
+    transition: none;
+  }
+
+  &.with-icon {
+    border-bottom: none;
+
+    .text {
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.15s ease-in-out;
+    }
+
+    &:focus,
+    &:hover {
+      .text {
+        border-bottom: 1px solid transparentize(darken($highlight-color, 7%), 0.5);
+        transition: none;
+      }
+    }
+  }
+
+  .nav-tabs & { transition: none }
+
+  &[name]:not([href]) {
+    &,
+    &:focus,
+    &:hover {
+      border-bottom: none;
+      transition: none;
+    }
+  }
+}
+
+// disable unsightly focus highlights
+a,
+button,
+input,
+select { @include noOutline }
+
+button,
+input[type="button"],
+input[type="checkbox"],
+input[type="radio"] { cursor: pointer }
+
+label {
+  margin-bottom: 0;
+  font-weight: normal;
+  @include noSelect;
+
+  &[for],
+  &.checkbox-label { cursor: pointer }
+}
+
+// Firefox needs some extra help with <select> menus
+.firefox select:-moz-focusring {
+  color: transparent;
+  text-shadow: 0 0 0 gray(33);
+}
+
+// hide IE's 'x' button in text fields
+input::-ms-clear { display: none }
+
+input[type="checkbox"] {
+  .ie & {
+    position: relative;
+    top: 2px;
+  }
+
+  &[disabled] + .checkbox-description { opacity: 0.5 }
+}
+
+.date-range {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 0;
+
+  input.form-control {
+    position: relative;
+    width: 110px;
+    min-width: 110px;
+    font-size: 12px;
+
+    &:focus { z-index: 1 }
+
+    &.start { @include roundedRight(0); }
+
+    &.end {
+      margin-left: -1px;
+      width: 111px;
+      @include roundedLeft(0);
+    }
+  }
+}
+
+.form-subheading {
+  margin-top: 6px;
+  color: gray(40);
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 11px;
+  line-height: 30px;
+}
+
+.control-description { color: gray(67) }
+
+button { white-space: nowrap }
+
+.field_with_errors {
+  display: inline;
+
+  label { color: hsl(1, 44%, 46%) }
+  .form-control { border-color: hsl(1, 44%, 46%) }
+
+  .input-group & {
+    &:first-child {
+      .form-control { @include roundedLeft(4px); }
+    }
+  }
+}
+
+
+// -----=====[ Custom Components ]=====-----
+
+.edit-inline {
+  label {
+    display: block;
+    cursor: text;
+    border: 1px solid gray(93);
+    padding: 4px 6px;
+    height: 20px;
+    line-height: 20px;
+  }
+
+  input[type=text] { display: none }
+}
+
+
+.flash-alert {
+  max-width: 940px;
+  margin: 20px auto;
+
+  .modal & { margin: 0 0 15px 0 }
+
+  body.has-group-filter & { margin-top: 45px }
+}
+
+.button-group {
+  clear: both;
+  padding: 6px 10px;
+  border-top: solid 1px gray(87);
+  background-color: gray(96);
+
+  a {
+    line-height: 30px;
+    &.btn { line-height: 20px }
+  }
+
+  ul { margin-bottom: 0 }
+}
+
+.inline-label {
+  display: inline-block;
+  zoom:1;
+  *display: inline;
+  vertical-align: middle;
+}

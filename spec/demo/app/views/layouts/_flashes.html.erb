@@ -1,0 +1,17 @@
+<div id="alerts-container">
+  <% flash.each do |type, message|
+    message = [message] unless message.respond_to?(:each)
+  %>
+      <div class="flash-alert alert <%= rails_flash_to_bootstrap(type) %>">
+        <% if message.size > 1 %>
+            <ul>
+              <% message.each do |value| %>
+                  <li><%= value %></li>
+              <% end %>
+            </ul>
+        <% else %>
+            <%= message.first %>
+        <% end %>
+      </div>
+  <% end %>
+</div>

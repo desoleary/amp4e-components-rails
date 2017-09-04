@@ -1,0 +1,61 @@
+//------------------------------------------------------------------------------
+// AMP UI: Variables
+//------------------------------------------------------------------------------
+
+
+// -----=====[ Colors ]=====-----
+
+// Primary hue
+$hue: 198;
+
+// Highlight color
+$highlight-color: hsl($hue, 100%, 42%);
+
+// General
+$link-color: hsl($hue, 100%, 35%);
+
+// Highlights
+$box-highlight-border       : hsl($hue, 75%, 66%);
+$box-highlight-shadow       : hsla($hue, 75%, 66%, 0.4);
+$box-highlight-shadow-solid : hsla($hue, 75%, 66%, 0.7);
+
+
+// -----=====[ Fonts ]=====-----
+
+// Fall through to Helvetica/Arial first (avoids loading Noto Sans JP for common
+// extended glyphs such as ellipses that aren't in the base Noto Sans web font)
+$main-font: 'Noto Sans', Helvetica, Arial, 'Noto Sans JP', 'Hiragino Kaku Gothic Pro', 'Meiryo', sans-serif;
+
+$base-font-size: 12px;
+
+
+// -----=====[ Metrics ]=====-----
+
+$global-search-width: 300px;
+$global-search-width-sm: 180px;
+
+
+// ----- Responsive Breakpoints -----
+
+$screen-xs-max: 767px;
+$screen-sm-min: 768px;
+$screen-sm-max: 991px;
+$screen-md-min: 992px;
+$screen-md-max: 1199px;
+$screen-lg-min: 1200px;
+
+
+// -----=====[ Z-index ]=====-----
+
+// see: https://code.engine.sourcefire.com/Cloud/janus-rails/wiki/z-index-values
+
+$z-context-menu:      25000;
+$z-help-pane:         20000;
+$z-modal-dialog:      20000;
+$z-modal-bg:          15000;
+$z-help-bubble:       15000;
+$z-main-header:       10000;
+$z-body-spinner-mask:  7500;
+$z-loading-overlay:    5000;
+$z-dropdown-menu:      1000;  // don't change this (Bootstrap uses 1000)
+$z-paginator:           800;
