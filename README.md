@@ -18,7 +18,7 @@ And then execute:
  
 ## Demo
 
-> Please check out [demo README](spec/demo/README.md) for details.
+> Please check out [demo README](spec/demo) for details.
 
 ## Development
 
