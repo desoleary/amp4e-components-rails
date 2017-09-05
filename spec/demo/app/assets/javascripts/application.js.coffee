@@ -1,6 +1,8 @@
 #= require rails-ujs
 #= require turbolinks
+#= require sinonjs
 #= require underscore
+#= require backbone
 #= require jquery
 #= require bootstrap
 #= require chai

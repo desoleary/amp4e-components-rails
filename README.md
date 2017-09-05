@@ -12,6 +12,20 @@ gem 'amp4e-components-rails'
 And then execute:
 
     $ bundle
+    
+## Usage
+
+#### Alerts 
+> Displays flash messages equivalent to Rails ERB version
+
+```coffeescript
+  alert = new AMP4e.Alerts()
+  alert.success('some-success-message')
+  alert.info('some-info-message')
+  alert.warning('some-warning-message')
+  alert.error('some-error-message')
+  alert.clear()
+```
 
 ## Testing 
     $ bin/rspec
